@@ -13,7 +13,7 @@ function ParticleLife() {
     const fields = useRef([[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]);
     const [language, setLanguage] = useState(data_en);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const languageFiles = [data_en, data_ptbr];
+    const languagesFiles = [data_en, data_ptbr];
     //const mouseCoords = useRef({x: -1, y: -1});
 
     const screenWidth = window.innerWidth;
@@ -241,7 +241,9 @@ function ParticleLife() {
 
         const getLanguage = () => {
 
-            setLanguage(languageFiles[JSON.parse(localStorage.getItem('language'))]);
+            const aux = JSON.parse(localStorage.getItem('language'));
+
+            aux === null ? setLanguage(languagesFiles[0]) : setLanguage(languagesFiles[aux]);
         }
 
         getLanguage();
@@ -253,7 +255,7 @@ function ParticleLife() {
 
         idleMovement();
 
-    }, [idleMovement, screenWidth, languageFiles]);
+    }, [idleMovement, screenWidth, languagesFiles]);
 
     useEffect(() => {
         const canvas = canvasRef.current;

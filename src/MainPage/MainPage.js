@@ -45,7 +45,9 @@ function MainPage() {
 
         const getLanguage = () => {
 
-            setLanguage(languagesFiles[JSON.parse(localStorage.getItem('language'))]);
+            const aux = JSON.parse(localStorage.getItem('language'));
+
+            aux === null ? setLanguage(languagesFiles[0]) : setLanguage(languagesFiles[aux]);
         }
 
         getLanguage();
