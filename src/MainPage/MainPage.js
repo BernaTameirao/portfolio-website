@@ -26,9 +26,11 @@ import robot3 from "../Images/Evolutionary Robotic Arm/Image3.png";
 function MainPage() {
 
     const [language, setLanguage] = useState(data_en);
+
     const imagesBanner = [image1, image2, image3];
     const imagesParticle = [particle1, particle2, particle3];
     const imagesRobot = [robot1, robot2, robot3];
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const languagesFiles = [data_en, data_ptbr];
     const phaseButtonContent = ["https://static-00.iconduck.com/assets.00/united-states-emoji-512x370-1qkq6uv6.png",
@@ -101,7 +103,9 @@ function MainPage() {
                             {/*        alt="bandeira-brasil"/>*/}
                             {/*</div>*/}
                             <div className="switch-div">
-                                <PhaseButton content={phaseButtonContent} data={JSON.parse(localStorage.getItem('language'))} sendData={handleSwitch}/>
+                                <PhaseButton content={phaseButtonContent}
+                                             data={JSON.parse(localStorage.getItem('language')) === null ? 0 : JSON.parse(localStorage.getItem('language'))}
+                                             sendData={handleSwitch}/>
                             </div>
                         </div>
                     </div>

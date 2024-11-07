@@ -12,12 +12,12 @@ function ParticleLife() {
     const canvasRef = useRef(null);
     const fields = useRef([[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]);
     const [language, setLanguage] = useState(data_en);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const languagesFiles = [data_en, data_ptbr];
+
+    const languagesFiles = useRef([data_en, data_ptbr]);
     //const mouseCoords = useRef({x: -1, y: -1});
 
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
+    const screenWidth = useRef(window.innerWidth);
+    const screenHeight = useRef(window.innerHeight);
 
     const parametersRules = useRef({gravitationDiffColor: [100, language.sliderController.subTitles.gravitationDiffColor],
                                                                 gravitationSameColor: [100, language.sliderController.subTitles.gravitationSameColor],
@@ -243,19 +243,19 @@ function ParticleLife() {
 
             const aux = JSON.parse(localStorage.getItem('language'));
 
-            aux === null ? setLanguage(languagesFiles[0]) : setLanguage(languagesFiles[aux]);
+            aux === null ? setLanguage(languagesFiles.current[0]) : setLanguage(languagesFiles.current[aux]);
         }
 
         getLanguage();
 
         let numPoints;
-        screenWidth > 1200 ? numPoints = 1000 : numPoints = 500;
+        screenWidth.current > 900 ? numPoints = 1000 : numPoints = 500;
 
         generateRandomPoints(numPoints);
 
         idleMovement();
 
-    }, [idleMovement, screenWidth, languagesFiles]);
+    }, [idleMovement]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -302,7 +302,7 @@ function ParticleLife() {
             <div className="fixed-content-particles">
                 <SliderController list={parametersRules.current} title={[language.sliderController.title, language.sliderController.advSettings]} sendList={handleListData} />
             </div>
-            <canvas ref={canvasRef} width={screenWidth} height={screenHeight}/>
+            <canvas ref={canvasRef} width={screenWidth.current} height={screenHeight.current}/>
         </div>
     );
 }
