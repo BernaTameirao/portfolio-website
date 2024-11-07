@@ -12,7 +12,12 @@ function ParticleLife() {
     const canvasRef = useRef(null);
     const fields = useRef([[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]);
     const [language, setLanguage] = useState(data_en);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const languageFiles = [data_en, data_ptbr];
     //const mouseCoords = useRef({x: -1, y: -1});
+
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
 
     const parametersRules = useRef({gravitationDiffColor: [100, language.sliderController.subTitles.gravitationDiffColor],
                                                                 gravitationSameColor: [100, language.sliderController.subTitles.gravitationSameColor],
@@ -26,13 +31,12 @@ function ParticleLife() {
                                                                 manualDistanceDiffColorAttr1: [100, language.sliderController.subTitles.manualDistanceDiffColorAttr1],
                                                                 manualDistanceDiffColorAttr2: [80, language.sliderController.subTitles.manualDistanceDiffColorAttr2],
                                                                 manualValueDiffColorAttr: [80, language.sliderController.subTitles.manualValueDiffColorAttr],
-                                                                manualDistanceDiffColorRep1: [60, language.sliderController.subTitles.manualDistanceDiffColorAttr1],
-                                                                manualDistanceDiffColorRep2: [0, language.sliderController.subTitles.manualDistanceDiffColorAttr2],
-                                                                manualValueDiffColorRep: [20, language.sliderController.subTitles.manualValueDiffColorAttr]});
+                                                                manualDistanceDiffColorRep1: [60, language.sliderController.subTitles.manualDistanceDiffColorRep1],
+                                                                manualDistanceDiffColorRep2: [0, language.sliderController.subTitles.manualDistanceDiffColorRep2],
+                                                                manualValueDiffColorRep: [20, language.sliderController.subTitles.manualValueDiffColorRep]});
 
-    const parametersParticles = useRef({populationSize: 1000});
 
-    const generateRandomPoints = () => {
+    const generateRandomPoints = (numPoints) => {
 
         if(canvasRef.current === null){
             return;
@@ -42,7 +46,7 @@ function ParticleLife() {
         const pointsInFields = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
         const colors = ['#ff5252', '#58ff58', '#4781ff', '#ffffff'];
 
-        for (let i = 0; i < parametersParticles.current.populationSize; i++) {
+        for (let i = 0; i < numPoints; i++) {
 
             const colorIndex = Math.floor(Math.random() * colors.length);
             newPoints.push({
@@ -237,19 +241,19 @@ function ParticleLife() {
 
         const getLanguage = () => {
 
-            const aux = JSON.parse(localStorage.getItem('language'));
-
-            aux === true ? setLanguage(data_ptbr) : setLanguage(data_en);
+            setLanguage(languageFiles[JSON.parse(localStorage.getItem('language'))]);
         }
 
         getLanguage();
 
-        generateRandomPoints();
+        let numPoints;
+        screenWidth > 1200 ? numPoints = 1000 : numPoints = 500;
+
+        generateRandomPoints(numPoints);
 
         idleMovement();
-        console.log("B");
 
-    }, [idleMovement]);
+    }, [idleMovement, screenWidth, languageFiles]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -291,13 +295,12 @@ function ParticleLife() {
         parametersRules.current = data;
     }
 
-
     return (
         <div className="background-particles">
             <div className="fixed-content-particles">
                 <SliderController list={parametersRules.current} title={[language.sliderController.title, language.sliderController.advSettings]} sendList={handleListData} />
             </div>
-            <canvas ref={canvasRef} width={"1650"} height={"800"}/>
+            <canvas ref={canvasRef} width={screenWidth} height={screenHeight}/>
         </div>
     );
 }

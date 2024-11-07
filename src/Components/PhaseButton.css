@@ -1,0 +1,39 @@
+.phase-button{
+
+    position: relative;
+
+    height: fit-content;
+    width: fit-content;
+    cursor: pointer;
+
+    user-select: none;
+}
+
+.phase-button-0{
+
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    z-index: 2;
+}
+
+.phase-button-1{
+
+    opacity: 0.1;
+
+    position: absolute;
+    transition: opacity 0.3s ease;
+
+    top:0;
+    z-index: 1;
+}
+
+.fade-0 {
+
+    opacity: 0.1;
+}
+
+/*.fade-1 {*/
+
+/*    opacity: 1;*/
+/*}*/

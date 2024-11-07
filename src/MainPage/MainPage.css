@@ -91,8 +91,6 @@
   flex-direction: row;
   justify-content: center;
 
-  height: fit-content;
-
   border: 1px solid lightsteelblue;
   padding: 1vmin;
   margin: 1vmin;
@@ -103,11 +101,6 @@
 .switch-div img {
 
   width: 5vmin;
-  height: auto;
-  margin-left: 0.5vmin;
-  margin-right: 0.5vmin;
-
-  user-select: none;
 }
 
 .second-background {
@@ -126,6 +119,9 @@
   font-size: calc(25px + 4vmin);
 
   align-self: center;
+
+  text-wrap: balance;
+  text-align: center;
 }
 
 .second-background h2 {
@@ -222,6 +218,9 @@
   font-family: "Century Gothic";
   font-size: calc(25px + 4vmin);
   color: whitesmoke;
+
+  text-wrap: balance;
+  text-align: center;
 }
 
 .third-background p {
@@ -250,4 +249,30 @@
 .link-custom-2{
 
   color:inherit;
+}
+
+/*Mobile Port*/
+@media(max-width: 900px){
+
+  .row-div {
+
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .block-text {
+
+    width: 70%;
+  }
+
+  .switch-div{
+
+    flex-direction: column;
+    padding: 0.5vmin;
+  }
+
+  .switch-div img{
+
+    margin: 3px 3px 1px;
+  }
 }

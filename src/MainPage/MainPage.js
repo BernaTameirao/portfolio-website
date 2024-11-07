@@ -1,15 +1,15 @@
 import './MainPage.css';
 import data_ptbr from '../Others/text_ptbr_main.json';
 import data_en from '../Others/text_en_main.json';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Fragment} from 'react';
 import { Link } from 'react-router-dom';
 
 import {UnrollBanner} from '../Components/UnrollBanner';
 import {Summary} from '../Components/Summary';
-import {SwitchButton} from "../Components/SwitchButton";
 import {Carousel} from "../Components/Carousel";
 import {ImagesSwitcher} from "../Components/ImagesSwitcher";
 import {Footer} from '../Components/Footer';
+import {PhaseButton} from '../Components/PhaseButton';
 
 import image1 from "../Images/Arts/VelhoOeste.png";
 import image2 from "../Images/Arts/Sapo.png";
@@ -29,10 +29,14 @@ function MainPage() {
     const imagesBanner = [image1, image2, image3];
     const imagesParticle = [particle1, particle2, particle3];
     const imagesRobot = [robot1, robot2, robot3];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const languagesFiles = [data_en, data_ptbr];
+    const phaseButtonContent = ["https://static-00.iconduck.com/assets.00/united-states-emoji-512x370-1qkq6uv6.png",
+                                        "https://static-00.iconduck.com/assets.00/brazil-emoji-2048x1480-z2fhxkde.png"];
 
     const handleSwitch = (event) => {
 
-        event ? setLanguage(data_ptbr) : setLanguage(data_en);
+        setLanguage(languagesFiles[event]);
 
         localStorage.setItem("language", JSON.stringify(event));
     }
@@ -41,14 +45,11 @@ function MainPage() {
 
         const getLanguage = () => {
 
-            const aux = JSON.parse(localStorage.getItem('language'));
-
-            aux === true ? setLanguage(data_ptbr) : setLanguage(data_en);
-
+            setLanguage(languagesFiles[JSON.parse(localStorage.getItem('language'))]);
         }
 
         getLanguage();
-    }, []);
+    }, [languagesFiles]);
 
     return (
         <>
@@ -88,14 +89,17 @@ function MainPage() {
                             <Carousel images={imagesBanner}/>
                         </div>
                         <div className="lateral-div">
+                            {/*<div className="switch-div">*/}
+                            {/*    <img*/}
+                            {/*        src="https://static-00.iconduck.com/assets.00/united-states-emoji-512x370-1qkq6uv6.png"*/}
+                            {/*        alt="bandeira-eua"/>*/}
+                            {/*    <SwitchButton sendData={handleSwitch} data={JSON.parse(localStorage.getItem('language'))}/>*/}
+                            {/*    <img*/}
+                            {/*        src="https://static-00.iconduck.com/assets.00/brazil-emoji-2048x1480-z2fhxkde.png"*/}
+                            {/*        alt="bandeira-brasil"/>*/}
+                            {/*</div>*/}
                             <div className="switch-div">
-                                <img
-                                    src="https://static-00.iconduck.com/assets.00/united-states-emoji-512x370-1qkq6uv6.png"
-                                    alt="bandeira-eua"/>
-                                <SwitchButton sendData={handleSwitch} data={JSON.parse(localStorage.getItem('language'))}/>
-                                <img
-                                    src="https://static-00.iconduck.com/assets.00/brazil-emoji-2048x1480-z2fhxkde.png"
-                                    alt="bandeira-brasil"/>
+                                <PhaseButton content={phaseButtonContent} data={JSON.parse(localStorage.getItem('language'))} sendData={handleSwitch}/>
                             </div>
                         </div>
                     </div>
@@ -108,18 +112,18 @@ function MainPage() {
                         <div className="row-div" id="topic0">
                             <div className="block-text">
                                 <p>{language.intro.pt1.split("<br/>").map((line, index) => (
-                                    <>
+                                    <Fragment key={index}>
                                         {line}
                                         <br/>
-                                    </>
+                                    </Fragment>
                                 ))}</p>
                             </div>
                             <div className="block-text">
                                 <p>{language.intro.pt2.split("<br/>").map((line, index) => (
-                                    <>
+                                    <Fragment key={index}>
                                         {line}
                                         <br/>
-                                    </>
+                                    </Fragment>
                                 ))}</p>
                             </div>
                         </div>
@@ -130,8 +134,8 @@ function MainPage() {
                         <h2>{language.aboutMe.mainTitle}</h2>
                         <div className="row-div" id="topic1">
                             {language.aboutMe.chapters1.map((chapter, chapterIndex) => (
-                                <>
-                                <div className="block-text" key={chapterIndex}>
+                                <Fragment key={chapterIndex}>
+                                <div className="block-text">
                                     <h3>{chapter.title}</h3>
                                     {chapter.topics.map((topic, topicIndex) => (
                                         <div key={topicIndex}>
@@ -143,12 +147,11 @@ function MainPage() {
                                 {chapterIndex%2===0?
                                     (<hr/>):(<></>)
                                 }
-                                </>
+                                </Fragment>
                             ))}
                         </div>
                         <div className="row-div" id="topic1">
                             {language.aboutMe.chapters2.map((chapter, chapterIndex) => (
-
                                 <>
                                     <div className="block-text" key={chapterIndex}>
                                         <h3>{chapter.title}</h3>
@@ -177,10 +180,10 @@ function MainPage() {
                                 <div className="block-text">
                                     <p>
                                         {language.particleLife.text.split("<br/>").map((line, index) => (
-                                        <>
+                                        <Fragment key={index}>
                                             {line}
                                             <br/>
-                                        </>
+                                        </Fragment>
                                     ))}
                                         <Link to="/particles" className="link-custom-2" >{language.particleLife.mainTitle}</Link>
                                     </p>
@@ -200,10 +203,10 @@ function MainPage() {
                             <div className="block-text">
                                 <p>
                                     {language.evolutionaryRobot.text.split("<br/>").map((line, index) => (
-                                        <>
+                                        <Fragment key={index}>
                                             {line}
                                             <br/>
-                                        </>
+                                        </Fragment>
                                     ))}
                                 </p>
                             </div>
