@@ -23,6 +23,14 @@ import robot1 from "../Images/Evolutionary Robotic Arm/Image1.png";
 import robot2 from "../Images/Evolutionary Robotic Arm/Image2.png";
 import robot3 from "../Images/Evolutionary Robotic Arm/Image3.png";
 
+import brazil from "../Images/Flags/brazil-flag-icon.webp";
+import usa from "../Images/Flags/united-states-flag-icon.webp";
+
+import github from "../Images/Logos/Github.png";
+import itchio from "../Images/Logos/itchio.svg";
+import instagram from "../Images/Logos/Instagram.png";
+import linkedin from "../Images/Logos/Linkedin.png";
+
 function MainPage() {
 
     const [language, setLanguage] = useState(data_en);
@@ -33,8 +41,7 @@ function MainPage() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const languagesFiles = [data_en, data_ptbr];
-    const phaseButtonContent = ["https://static-00.iconduck.com/assets.00/united-states-emoji-512x370-1qkq6uv6.png",
-                                        "https://static-00.iconduck.com/assets.00/brazil-emoji-2048x1480-z2fhxkde.png"];
+    const phaseButtonContent = [usa, brazil];
 
     const handleSwitch = (event) => {
 
@@ -65,22 +72,22 @@ function MainPage() {
                     <Link
                         to="https://github.com/BernaTameirao"
                         className="link-custom"
-                        target="_blank"><UnrollBanner value={"https://cdn-icons-png.flaticon.com/512/25/25231.png"}
+                        target="_blank"><UnrollBanner value={github}
                                   text={language.iconsText.github}/></Link>
                     <Link
                         to="https://bernardo-t.itch.io/"
                         className="link-custom"
-                        target="_blank"><UnrollBanner value={"https://static.itch.io/images/itchio-textless-black.svg"}
+                        target="_blank"><UnrollBanner value={itchio}
                                   text={language.iconsText.itch}/></Link>
                     <Link
                         to=""
                         className="link-custom"
-                        target="_blank"><UnrollBanner value={"https://cdn-icons-png.flaticon.com/512/87/87390.png"}
+                        target="_blank"><UnrollBanner value={instagram}
                                             text={language.iconsText.instagram}/></Link>
                     <Link
                         to="https://www.linkedin.com/in/btameirao/"
                         className="link-custom"
-                        target="_blank"><UnrollBanner value={"https://cdn-icons-png.freepik.com/256/254/254394.png?semt=ais_hybrid"}
+                        target="_blank"><UnrollBanner value={linkedin}
                                   text={language.iconsText.linkedin}/></Link>
                 </div>
 
