@@ -117,6 +117,7 @@
 
   font-family: "Century Gothic";
   font-size: calc(25px + 4vmin);
+  color: black;
 
   align-self: center;
 
@@ -202,7 +203,6 @@
 
 .third-background{
 
-  /*background-color: #2e2e2e;*/
   background-color: #2d3642;
   height: fit-content;
   padding-bottom: 7vh;

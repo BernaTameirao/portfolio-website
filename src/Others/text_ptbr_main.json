@@ -2,7 +2,7 @@
   "intro": {
     "title": "Portfólio",
     "pt1": "Salve, quem quer que esteja lendo isso! <br/><br/> Você está no meu site. <br/> Especificamente no meu site de portfólio, em que eu guardo alguns dos meus projetos. Se você gostaria de ver todos eles, o link das minhas redes sociais está logo ao lado! <br/><br/> Se você continuou por aqui, acredito que gostaria de saber mais sobre mim (e sobre os projetos mais importantes que apresentarei por aqui).",
-    "pt2": "Primeiramente, meu nome é Bernardo Tameirão, e eu sou um estudante de Ciências da Computação da USP. <br/> <br/> Sou membro do grupo de desenvolvimento de jogos Fellowship of the Game e faço parte de uma iniciação científica sobre sistemas evolutivos. <br/><br/> E já fiz alguns projetos por hobby, inclusive outros dois sites que anexarei nesse assim que estiverem prontos. <br/>"
+    "pt2": "Primeiramente, meu nome é Bernardo Tameirão, e eu sou um estudante de Ciências da Computação da USP. <br/> <br/> Sou membro do grupo de desenvolvimento de jogos Fellowship of the Game e faço parte de duas pesquisas diferentes. <br/><br/> E já fiz alguns projetos por hobby, inclusive outros dois sites que anexarei nesse assim que estiverem prontos. <br/>"
   },
 
   "iconsText": {
@@ -40,13 +40,21 @@
         "topics": [
           {
             "title": "USP",
-            "text": "Eu estou no 4° ano da graduação de Ciências da Computação da Universidade de São Paulo, a universidade mais bem avaliada da América Latina."
+            "text": "Sou estudante de Ciência da Computação na Universidade de São Paulo, a universidade mais bem classificada da América Latina."
           }
         ]
       },
       {
         "title": "Experiência",
         "topics": [
+          {
+            "title": "Pesquisa sobre Computação Evolutiva",
+            "text": "Atualmente, estou envolvido em um projeto de pesquisa científica na área de Computação Evolutiva. Essa pesquisa envolve o projeto, a implementação e a avaliação experimental de um manipulador robótico simulado."
+          },
+          {
+            "title": "Pesquisa sobre Modelos de Linguagem",
+            "text": "Atualmente, estou envolvido em um projeto de pesquisa focado em Modelos de Linguagem de Grande Porte (LLMs). A pesquisa envolve experimentar modelos de última geração, desenvolver estratégias de engenharia de prompts e avaliar o desempenho do modelo em diferentes tarefas."
+          },
           {
             "title": "FoG",
             "text": "Eu participo do grupo de extensão sobre desenvolvimento de jogos Fellowship of the Game, desde o início do meu curso, em que eu aprendi sobre Unity, C#, e coordenação de projetos."
@@ -76,6 +84,10 @@
         "title": "Prêmios",
         "topics": [
           {
+            "title": "Candidato ao Prêmio de Melhor Pôster",
+            "text": "Fui candidato ao prêmio de melhor pôster no Congresso IEEE sobre Computação Evolutiva (CEC 2025)."
+          },
+          {
             "title": "Olímpiada Brasileira de Robótica Teórica",
             "text": "Fui premiado com a medalha de ouro em 2019 e fui convidado para o minicurso de robótica, em que somente os melhores de cada estado brasileiro foram chamados."
           },
@@ -91,12 +103,24 @@
   "particleLife": {
 
     "mainTitle": "Particle Life",
-    "text": "Um dos projetos que eu fiz foi um Particle Life, já que se mostrou muito interessante a possibilidade de alterar levemente algumas regras colocadas, e mudar completamente um canvas.<br/><br/> Assim, com algumas regras simples, como atração e repulsão entre partículas foi possível criar algumas telas distintas, como pode ser visto ao lado.<br/><br/>"
+    "text": "Um dos projetos que eu fiz foi um Particle Life, já que se mostrou muito interessante a possibilidade de alterar levemente algumas regras colocadas, e mudar completamente um canvas.<br/><br/> Assim, com algumas regras simples, como atração e repulsão entre partículas foi possível criar algumas telas distintas, como pode ser visto ao lado."
   },
 
   "evolutionaryRobot": {
 
     "mainTitle": "Braço Robótico Evolutivo",
-    "text": "Eu faço uma iniciação científica focada no desenvolvimento de um braço robótico capaz de obter o melhor caminho até um objetivo utilizando sistemas evolutivos. Um protótipo já foi feito por mim, como demonstrado ao lado."
+    "text": "Realizei um projeto de pesquisa de graduação focado no desenvolvimento de um braço robótico capaz de alcançar um alvo, evitando obstáculos, utilizando computação evolutiva e algoritmos de busca de caminhos. <br/><br/> O manipulador foi capaz de evitar impedimentos colocados aleatoriamente, alcançar o interior de túneis estreitos e operar em condições de névoa de guerra. <br/><br/> A pesquisa resultante deste projeto foi aceita para publicação e apresentação no Congresso IEEE sobre Computação Evolutiva (CEC 2025), realizado em Hangzhou, China."
+  },
+
+  "recommendationSystem": {
+
+    "mainTitle": "Sistema de Recomendação Hermes",
+    "text": "Outro projeto meu é um sistema de recomendação que sugere campeões de League of Legends para novos jogadores com base em suas maiores pontuações de maestria. <br/><br/> Desenvolvi um extrator de dados personalizado para coletar informações da API da Riot Games e construí meu próprio banco de dados, que foi usado como base para o sistema de recomendação."
+  },
+
+  "desktopPet": {
+
+    "mainTitle": "Pet de Desktop",
+    "text": "Este projeto é um aplicativo de desktop leve, desenvolvido em Python com PyQt5, que traz animais de estimação virtuais animados para a sua tela. <br/><br/> Esses animais se movem, andam, pulam e podem ser arrastados livremente com o mouse, tudo em tempo real, criando uma experiência interativa no desktop. <br/><br/> O aplicativo apresenta animações suaves com gravidade simulada e comportamento de movimento natural. Ele também inclui suporte completo para múltiplos monitores, permitindo que os animais se movam perfeitamente entre diferentes telas."
   }
 }
